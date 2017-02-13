@@ -11,6 +11,14 @@ class HeapTest extends SpecificationWithJUnit {
 
   "Heap.allocate" should {
 
+    "generate unique ids" >> {
+      val heap = Heap.empty(20)
+
+      val objects = for (_ <- 0 until 20) yield heap.allocate(1)
+
+      objects must haveUniqueIds
+    }
+
     "allocate objects without overlapping" >> {
       val heap = Heap.empty(10)
 
@@ -150,6 +158,17 @@ class HeapTest extends SpecificationWithJUnit {
       heap.gc()
 
       heap.references must not(contain(ref2))
+    }
+  }
+
+  def haveUniqueIds: Matcher[GenTraversable[Reference]] = new Matcher[GenTraversable[Reference]] {
+    override def apply[S <: GenTraversable[Reference]](t: Expectable[S]): MatchResult[S] = {
+      val refs = t.value.toList
+      val nonUniqueIds = refs.groupBy(_.id()) collect {
+        case (id, instances) if instances.size > 1 => id
+      }
+
+      result(nonUniqueIds.isEmpty, "references have unique ids", s"non-unique reference ids found: [${nonUniqueIds.toList.mkString(", ")}]", t)
     }
   }
 
