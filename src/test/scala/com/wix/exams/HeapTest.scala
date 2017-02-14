@@ -8,14 +8,6 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
 
   "object allocation" should {
 
-    "generate unique ids" >> {
-      implicit val heap = Heap.empty(20)
-
-      val objects = for (_ <- 0 until 20) yield new Object(1)
-
-      objects must haveUniqueIds
-    }
-
     "allocate objects without overlapping" >> {
       implicit val heap = Heap.empty(10)
 
