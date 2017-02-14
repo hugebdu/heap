@@ -6,6 +6,6 @@ public interface Reference {
     int size();
     int offset();
 
-    void reference(Reference other);
-    void dereference(Reference other);
+    void refer(Reference other);
+    void unrefer(Reference other);
 }

@@ -2,7 +2,7 @@ package com.wix.exams.heap;
 
 import java.util.Set;
 
-public class Heap {
+public final class Heap {
 
     private static final int DEFAULT_HEAP_CAPACITY = 50;
 
@@ -49,7 +49,7 @@ public class Heap {
         return null;
     }
 
-    public static class OutOfMemory extends RuntimeException {
+    public static final class OutOfMemory extends RuntimeException {
 
         OutOfMemory() {
             super("No more space left in the heap");

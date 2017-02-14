@@ -28,9 +28,9 @@ trait ReferenceDSL {
 
   implicit class ReferenceWithOperators[T <% Reference](ref: T) {
 
-    def --->(other: Reference): Reference = { ref.reference(other); other }
+    def --->(other: Reference): Reference = { ref.refer(other); other }
 
-    def -/->(other: Reference): Unit = ref.dereference(other)
+    def -/->(other: Reference): Unit = ref.unrefer(other)
   }
 }
 
