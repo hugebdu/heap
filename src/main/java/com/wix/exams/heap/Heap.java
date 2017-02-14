@@ -1,4 +1,4 @@
-package com.wix.exaps.heap;
+package com.wix.exams.heap;
 
 import java.util.Set;
 

@@ -1,7 +1,7 @@
 package com.wix.exams
 
-import com.wix.exaps.heap.ReferenceDSL._
-import com.wix.exaps.heap.{Heap, Reference}
+import com.wix.exams.heap.ReferenceDSL._
+import com.wix.exams.heap.{Heap, Reference}
 import org.specs2.matcher.{Expectable, MatchResult, Matcher}
 import org.specs2.mutable.SpecificationWithJUnit
 
