@@ -6,7 +6,7 @@ public class Heap {
 
     private static final int DEFAULT_HEAP_CAPACITY = 50;
 
-    private static final int DEFAULT_OBJECT_SIZE = 10;
+    public static final int DEFAULT_OBJECT_SIZE = 10;
 
     public static Heap empty(int capacity) {
         //TODO: implement
