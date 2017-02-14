@@ -16,7 +16,7 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
       new Object(3)
       new Object(4)
 
-      heap.references() must notOverlap
+      heap.references must notOverlap
     }
 
     "fail for object bigger than the heap capacity" >> {
