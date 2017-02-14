@@ -6,7 +6,7 @@ import org.specs2.mutable.SpecificationWithJUnit
 
 class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
 
-  "Heap.allocate" should {
+  "object allocation" should {
 
     "generate unique ids" >> {
       implicit val heap = Heap.empty(20)
@@ -82,7 +82,7 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
     }
   }
 
-  "Heap.gc" should {
+  "garbage collection" should {
 
     "not collect roots" >> {
       implicit val heap = Heap.empty()
