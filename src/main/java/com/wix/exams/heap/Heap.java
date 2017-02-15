@@ -6,8 +6,6 @@ public final class Heap {
 
     private static final int DEFAULT_HEAP_CAPACITY = 50;
 
-    public static final int DEFAULT_OBJECT_SIZE = 10;
-
     public static Heap empty(int capacity) {
         //TODO: implement
         return null;
@@ -31,17 +29,9 @@ public final class Heap {
         gc(true);
     }
 
-    public Reference allocateRoot() {
-        return allocateRoot(DEFAULT_OBJECT_SIZE);
-    }
-
     public Reference allocate(int size) {
         //TODO: implement
         return null;
-    }
-
-    public Reference allocate() {
-        return allocate(DEFAULT_OBJECT_SIZE);
     }
 
     public Set<Reference> references() {

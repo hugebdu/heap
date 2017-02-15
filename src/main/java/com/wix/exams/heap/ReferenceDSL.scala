@@ -4,14 +4,16 @@ import scala.language.implicitConversions
 
 trait ReferenceDSL {
 
-  class RootObject(size: Int = Heap.DEFAULT_OBJECT_SIZE)(implicit heap: Heap) extends Object(size) {
+  val DefaultObjectSize = 10
+
+  class RootObject(size: Int = DefaultObjectSize)(implicit heap: Heap) extends Object(size) {
 
     override protected def allocate(size: Int): Reference = {
       heap.allocateRoot(size)
     }
   }
 
-  class Object(size: Int = Heap.DEFAULT_OBJECT_SIZE)(implicit heap: Heap) {
+  class Object(size: Int = DefaultObjectSize)(implicit heap: Heap) {
 
     val reference = allocate(size)
 

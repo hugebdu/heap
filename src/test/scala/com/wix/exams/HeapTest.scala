@@ -8,6 +8,15 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
 
   "object allocation" should {
 
+    "allocated objects are in the heap" >> {
+      implicit val heap = Heap.empty()
+
+      val obj1 = new RootObject()
+      val obj2 = new Object()
+
+      heap.references must contain(obj1, obj2)
+    }
+
     "allocate objects without overlapping" >> {
       implicit val heap = Heap.empty(10)
 
@@ -36,7 +45,7 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
       implicit val heap = Heap.empty(10)
 
       new Object(10)
-      heap.gc()
+      heap.gc(false)
       new Object(9)
 
       success
@@ -149,5 +158,4 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
       heap.references must not(contain(ref2))
     }
   }
-
 }
