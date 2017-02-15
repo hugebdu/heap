@@ -8,7 +8,7 @@ class HeapTest extends SpecificationWithJUnit with ReferenceMatchers {
 
   "object allocation" should {
 
-    "allocated objects are in the heap" >> {
+    "store allocated objects on the heap" >> {
       implicit val heap = Heap.empty()
 
       val obj1 = new RootObject()
